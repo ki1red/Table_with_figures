@@ -1,0 +1,10 @@
+F:\НГТУ\Домашние задания\Информатика\Проекты\figures\bin\Debug\figures.exe.config
+F:\НГТУ\Домашние задания\Информатика\Проекты\figures\bin\Debug\figures.exe
+F:\НГТУ\Домашние задания\Информатика\Проекты\figures\bin\Debug\figures.pdb
+F:\НГТУ\Домашние задания\Информатика\Проекты\figures\obj\Debug\figures.Window.resources
+F:\НГТУ\Домашние задания\Информатика\Проекты\figures\obj\Debug\figures.Properties.Resources.resources
+F:\НГТУ\Домашние задания\Информатика\Проекты\figures\obj\Debug\figures.csproj.GenerateResource.cache
+F:\НГТУ\Домашние задания\Информатика\Проекты\figures\obj\Debug\figures.csproj.CoreCompileInputs.cache
+F:\НГТУ\Домашние задания\Информатика\Проекты\figures\obj\Debug\figures.exe
+F:\НГТУ\Домашние задания\Информатика\Проекты\figures\obj\Debug\figures.pdb
+F:\НГТУ\Домашние задания\Информатика\Проекты\figures\obj\Debug\figures.csproj.AssemblyReference.cache
