@@ -88,6 +88,12 @@ namespace figures
             //Console.WriteLine();
         }
 
+        // Выбрать фигуру
+        public Figure ChoiceFigure(int index)
+        {
+            return figures[index];
+        }
+
         // Получить список фигур
         public Figure[] GetListFigures()
         {

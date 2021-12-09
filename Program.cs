@@ -14,10 +14,10 @@ namespace figures
         [STAThread]
         static void Main()
         {
-            /*Application.EnableVisualStyles();
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Window());*/
-            Color col = new Color(255,255,255,255);
+            Application.Run(new Window());
+            /*Color col = new Color(255,255,255,255);
             Point one = new Point(2, 10);
             Point two = new Point(10, 8);
             Point three = new Point(8, 0);
@@ -40,7 +40,7 @@ namespace figures
 
             
             
-            doc.DeleteFigure(0);
+            doc.DeleteFigure(0);*/
         }
     }
 }
