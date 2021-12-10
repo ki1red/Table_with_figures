@@ -26,7 +26,7 @@ namespace figures
         }
 
         
-        // Выбрать тип фигуры для создания
+        // Список типов фигур
         private void ListFigures_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ListFigures.SelectedIndex == 0)
@@ -36,7 +36,7 @@ namespace figures
                 CreatingAToolboxForTheQuadrilateral();
         }
         
-        // Добавить фигуру в таблицу
+        // Кнопка "Добавить"
         private void AddFigure_Click(object sender, EventArgs e)
         {
             // Если не ввели данные
@@ -60,6 +60,58 @@ namespace figures
             textbox_radius.Text = "";
 
             AddToTable();
+        }
+
+        // Кнопка "Повернуть"
+        private void rotateFigures_Click(object sender, EventArgs e)
+        {
+            uint deg = 0;
+
+            if (list_deg.SelectedIndex == 0)
+                deg = 90;
+            else if (list_deg.SelectedIndex == 1)
+                deg = 180;
+            else if (list_deg.SelectedIndex == 2)
+                deg = 270;
+
+            GeneralListFigures.Rotate(deg);
+            UpdateTable();
+        }
+
+        // Кнопка "Масштабировать"
+        private void scaleFigures_Click(object sender, EventArgs e)
+        {
+            int newsize = 1;
+
+            string[] s = textbox_scale.Text.Split(' ');
+            if(s.Length!=0)newsize = int.Parse(s[0]);
+
+            GeneralListFigures.Scale(newsize);
+            UpdateTable();
+        }
+
+        // Кнопка "Удалить"
+        private void deleteFigure_Click(object sender, EventArgs e)
+        {
+            if (dataGridView.Rows.Count == 1) return;
+
+            int selectedRowCount = dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
+
+            if (selectedRowCount == 0)
+            {
+                dataGridView.Rows.RemoveAt(0);
+                GeneralListFigures.DeleteFigure(0);
+                return;
+            }
+            dataGridView.Rows.RemoveAt(selectedRowCount+1);
+            GeneralListFigures.DeleteFigure(selectedRowCount+1);
+            deleteFigure.Visible = false;
+        }
+
+        // Выбор ячейки в таблице фигур
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            deleteFigure.Visible = true;
         }
     }
 }

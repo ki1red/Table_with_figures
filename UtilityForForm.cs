@@ -114,7 +114,8 @@ namespace figures
 
             GeneralListFigures.AddFigure(kvadrat);
         }
-
+        
+        // Добавление в таблицу новой фигуры
         public void AddToTable()
         {
             int lengthVD = GeneralListFigures.GetListFigures().Length;
@@ -189,6 +190,93 @@ namespace figures
 
             }
             dataGridView.Rows.Add(row);
+        }
+
+        // Обновить данные в таблице
+        public bool UpdateTable()
+        {
+            int length_VD = GeneralListFigures.GetListFigures().Length;
+            int length_T = dataGridView.Rows.Count - 1;
+
+            if (length_T != length_VD) return false;
+
+            for (int g = 0; g < length_T;g++)
+            {
+                string[] row = new string[4];
+
+                if (Convert.ToString(GeneralListFigures.ChoiceFigure(g).GetType()) == "figures.Circle")
+                {
+                    row[0] = "Круг";
+                    string color = "";
+                    string point = "";
+                    string radius = "";
+
+                    // Строка параметров цвета
+                    int[] col = GeneralListFigures.ChoiceFigure(g).GetColor();
+                    for (int i = 0; i < col.Length; i++)
+                    {
+                        color += Convert.ToString(col[i]);
+                        color += " ";
+                    }
+
+                    // Договор
+                    Circle a = GeneralListFigures.ChoiceFigure(g) as Circle;
+
+                    // Строка параметров центра окружности
+                    point += Convert.ToString(a.GetCentre().GetX()) + " " + Convert.ToString(a.GetCentre().GetY());
+
+                    // Строка длины радиуса
+                    radius += Convert.ToString(a.GetRadius());
+
+                    row[1] = "Цвет: " + color + "; Центр: (" + point + "); Радиус: " + radius;
+
+                    row[2] = Convert.ToString(a.GetPerimeter());
+
+                    row[3] = Convert.ToString(a.GetSquare());
+
+
+                }
+
+                else if (Convert.ToString(GeneralListFigures.ChoiceFigure(g).GetType()) == "figures.Quadrilateral")
+                {
+                    row[0] = "Четырёхугольник";
+                    string color = "";
+                    string points = "";
+
+                    // Строка параметров цвета
+                    int[] col = GeneralListFigures.ChoiceFigure(g).GetColor();
+                    for (int i = 0; i < col.Length; i++)
+                    {
+                        color += Convert.ToString(col[i]);
+                        color += " ";
+                    }
+
+                    // Договор
+                    Quadrilateral a = GeneralListFigures.ChoiceFigure(g) as Quadrilateral;
+
+                    // Строка координат точек
+                    string[] p = new string[4];
+                    Point[] pVD = a.GetPoints();
+                    for (int i = 0; i < p.Length; i++)
+                    {
+                        p[i] = Convert.ToString("(" + pVD[i].GetX()) + " " + Convert.ToString(pVD[i].GetY() + ")");
+                    }
+                    points += p[0] + "," + p[1] + "," + p[2] + "," + p[3];
+
+
+                    row[1] = "Цвет: " + color + "; Tочки: " + points;
+
+                    row[2] = Convert.ToString(a.GetPerimeter());
+
+                    row[3] = Convert.ToString(a.GetSquare());
+
+                }
+
+                dataGridView.Rows[g].SetValues(row);
+
+            }
+
+            return true;
         }
     }
 }

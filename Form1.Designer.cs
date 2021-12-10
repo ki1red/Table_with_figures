@@ -30,11 +30,11 @@ namespace figures
         private void InitializeComponent()
         {
             this.PanelUnderTable = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.fig = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.per = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.squ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.simpleBorder = new System.Windows.Forms.GroupBox();
             this.textbox_color = new System.Windows.Forms.TextBox();
             this.label_color = new System.Windows.Forms.Label();
@@ -46,14 +46,14 @@ namespace figures
             this.AddFigure = new System.Windows.Forms.Button();
             this.ListFigures = new System.Windows.Forms.ListBox();
             this.label_choiceTypeFigure = new System.Windows.Forms.Label();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.fig = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.per = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.squ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteFigure = new System.Windows.Forms.Button();
+            this.rotateFigures = new System.Windows.Forms.Button();
+            this.scaleFigures = new System.Windows.Forms.Button();
+            this.list_deg = new System.Windows.Forms.ListBox();
+            this.textbox_scale = new System.Windows.Forms.TextBox();
             this.PanelUnderTable.SuspendLayout();
-            this.simpleBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.simpleBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelUnderTable
@@ -64,50 +64,50 @@ namespace figures
             this.PanelUnderTable.Size = new System.Drawing.Size(886, 261);
             this.PanelUnderTable.TabIndex = 0;
             // 
-            // label1
+            // dataGridView
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(29, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 26);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Фигура";
+            this.dataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.ColumnHeadersHeight = 50;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fig,
+            this.prop,
+            this.per,
+            this.squ});
+            this.dataGridView.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersWidth = 21;
+            this.dataGridView.Size = new System.Drawing.Size(880, 255);
+            this.dataGridView.TabIndex = 0;
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
-            // label2
+            // fig
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(194, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 26);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Параметры";
+            this.fig.FillWeight = 91.59882F;
+            this.fig.HeaderText = "Фигура";
+            this.fig.Name = "fig";
+            this.fig.ReadOnly = true;
             // 
-            // label3
+            // prop
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(399, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 26);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Периметр";
+            this.prop.FillWeight = 169.9667F;
+            this.prop.HeaderText = "Параметры";
+            this.prop.Name = "prop";
+            this.prop.ReadOnly = true;
             // 
-            // label4
+            // per
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(721, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 26);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Посл.дейст.";
+            this.per.FillWeight = 77.52076F;
+            this.per.HeaderText = "Периметр";
+            this.per.Name = "per";
+            this.per.ReadOnly = true;
             // 
-            // label5
+            // squ
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(560, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 26);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Площадь";
+            this.squ.FillWeight = 60.9137F;
+            this.squ.HeaderText = "Площадь";
+            this.squ.Name = "squ";
+            this.squ.ReadOnly = true;
             // 
             // simpleBorder
             // 
@@ -126,7 +126,7 @@ namespace figures
             this.simpleBorder.Size = new System.Drawing.Size(333, 118);
             this.simpleBorder.TabIndex = 7;
             this.simpleBorder.TabStop = false;
-            this.simpleBorder.Text = "Взаимодействие";
+            this.simpleBorder.Text = "Создание";
             // 
             // textbox_color
             // 
@@ -229,82 +229,86 @@ namespace figures
             this.label_choiceTypeFigure.Text = "Выберите тип";
             this.label_choiceTypeFigure.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // dataGridView
+            // deleteFigure
             // 
-            this.dataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView.ColumnHeadersHeight = 50;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.fig,
-            this.prop,
-            this.per,
-            this.squ});
-            this.dataGridView.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowHeadersWidth = 21;
-            this.dataGridView.Size = new System.Drawing.Size(880, 255);
-            this.dataGridView.TabIndex = 0;
+            this.deleteFigure.Location = new System.Drawing.Point(34, 413);
+            this.deleteFigure.Name = "deleteFigure";
+            this.deleteFigure.Size = new System.Drawing.Size(75, 23);
+            this.deleteFigure.TabIndex = 10;
+            this.deleteFigure.Text = "Удалить";
+            this.deleteFigure.UseVisualStyleBackColor = true;
+            this.deleteFigure.Visible = false;
+            this.deleteFigure.Click += new System.EventHandler(this.deleteFigure_Click);
             // 
-            // fig
+            // rotateFigures
             // 
-            this.fig.FillWeight = 91.59882F;
-            this.fig.HeaderText = "Фигура";
-            this.fig.Name = "fig";
-            this.fig.ReadOnly = true;
+            this.rotateFigures.Location = new System.Drawing.Point(404, 324);
+            this.rotateFigures.Name = "rotateFigures";
+            this.rotateFigures.Size = new System.Drawing.Size(83, 34);
+            this.rotateFigures.TabIndex = 11;
+            this.rotateFigures.Text = "Повернуть";
+            this.rotateFigures.UseVisualStyleBackColor = true;
+            this.rotateFigures.Click += new System.EventHandler(this.rotateFigures_Click);
             // 
-            // prop
+            // scaleFigures
             // 
-            this.prop.FillWeight = 169.9667F;
-            this.prop.HeaderText = "Параметры";
-            this.prop.Name = "prop";
-            this.prop.ReadOnly = true;
+            this.scaleFigures.Location = new System.Drawing.Point(404, 390);
+            this.scaleFigures.Name = "scaleFigures";
+            this.scaleFigures.Size = new System.Drawing.Size(104, 34);
+            this.scaleFigures.TabIndex = 12;
+            this.scaleFigures.Text = "Масштабировать";
+            this.scaleFigures.UseVisualStyleBackColor = true;
+            this.scaleFigures.Click += new System.EventHandler(this.scaleFigures_Click);
             // 
-            // per
+            // list_deg
             // 
-            this.per.FillWeight = 77.52076F;
-            this.per.HeaderText = "Периметр";
-            this.per.Name = "per";
-            this.per.ReadOnly = true;
+            this.list_deg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.list_deg.FormattingEnabled = true;
+            this.list_deg.ItemHeight = 20;
+            this.list_deg.Items.AddRange(new object[] {
+            "90",
+            "180",
+            "270"});
+            this.list_deg.Location = new System.Drawing.Point(330, 330);
+            this.list_deg.Name = "list_deg";
+            this.list_deg.Size = new System.Drawing.Size(57, 24);
+            this.list_deg.TabIndex = 13;
             // 
-            // squ
+            // textbox_scale
             // 
-            this.squ.FillWeight = 60.9137F;
-            this.squ.HeaderText = "Площадь";
-            this.squ.Name = "squ";
-            this.squ.ReadOnly = true;
+            this.textbox_scale.Location = new System.Drawing.Point(335, 397);
+            this.textbox_scale.Name = "textbox_scale";
+            this.textbox_scale.Size = new System.Drawing.Size(51, 20);
+            this.textbox_scale.TabIndex = 18;
             // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 450);
+            this.Controls.Add(this.textbox_scale);
+            this.Controls.Add(this.list_deg);
+            this.Controls.Add(this.scaleFigures);
+            this.Controls.Add(this.rotateFigures);
+            this.Controls.Add(this.deleteFigure);
             this.Controls.Add(this.ListFigures);
             this.Controls.Add(this.label_choiceTypeFigure);
             this.Controls.Add(this.simpleBorder);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.PanelUnderTable);
             this.Name = "Window";
             this.Text = "Лабораторные 12-13";
             this.Load += new System.EventHandler(this.Window_Load);
             this.PanelUnderTable.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.simpleBorder.ResumeLayout(false);
             this.simpleBorder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Panel PanelUnderTable;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox simpleBorder;
         private System.Windows.Forms.ListBox ListFigures;
         private System.Windows.Forms.Label label_choiceTypeFigure;
@@ -321,6 +325,11 @@ namespace figures
         private System.Windows.Forms.DataGridViewTextBoxColumn prop;
         private System.Windows.Forms.DataGridViewTextBoxColumn per;
         private System.Windows.Forms.DataGridViewTextBoxColumn squ;
+        private System.Windows.Forms.Button deleteFigure;
+        private System.Windows.Forms.Button rotateFigures;
+        private System.Windows.Forms.Button scaleFigures;
+        private System.Windows.Forms.ListBox list_deg;
+        private System.Windows.Forms.TextBox textbox_scale;
     }
 }
 
