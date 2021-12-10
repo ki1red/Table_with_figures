@@ -22,6 +22,13 @@ namespace figures
             color.SetNewOptions(newColor.GetRed(),newColor.GetGreen(),newColor.GetBlue(), newColor.GetTransparency());
         }
 
+        // Получить массив параметров цвета
+        public int[] GetColor()
+        {
+            int[] col = new int[] { color.GetRed(), color.GetGreen(), color.GetBlue(), color.GetTransparency() };
+            return col;
+        }
+
         // Узнать периметр
         public abstract double GetPerimeter();
 

@@ -64,5 +64,17 @@ namespace figures
         {
             return (Math.PI * Math.Pow(radius, 2));
         }
+
+        // Узнать точку-центр
+        public Point GetCentre()
+        {
+            return this.centre;
+        }
+
+        // Узнать радиус
+        public double GetRadius()
+        {
+            return this.radius;
+        }
     }
 }

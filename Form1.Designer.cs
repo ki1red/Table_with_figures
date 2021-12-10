@@ -29,7 +29,6 @@ namespace figures
         /// </summary>
         private void InitializeComponent()
         {
-            this.TableFigures = new System.Windows.Forms.TableLayoutPanel();
             this.PanelUnderTable = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,6 +36,8 @@ namespace figures
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.simpleBorder = new System.Windows.Forms.GroupBox();
+            this.textbox_color = new System.Windows.Forms.TextBox();
+            this.label_color = new System.Windows.Forms.Label();
             this.label_xy_in_input = new System.Windows.Forms.Label();
             this.textbox_points = new System.Windows.Forms.TextBox();
             this.label_points = new System.Windows.Forms.Label();
@@ -45,32 +46,19 @@ namespace figures
             this.AddFigure = new System.Windows.Forms.Button();
             this.ListFigures = new System.Windows.Forms.ListBox();
             this.label_choiceTypeFigure = new System.Windows.Forms.Label();
-            this.textbox_color = new System.Windows.Forms.TextBox();
-            this.label_color = new System.Windows.Forms.Label();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.fig = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.per = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.squ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelUnderTable.SuspendLayout();
             this.simpleBorder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // TableFigures
-            // 
-            this.TableFigures.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.TableFigures.ColumnCount = 5;
-            this.TableFigures.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
-            this.TableFigures.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
-            this.TableFigures.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
-            this.TableFigures.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
-            this.TableFigures.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
-            this.TableFigures.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TableFigures.Location = new System.Drawing.Point(3, 3);
-            this.TableFigures.Name = "TableFigures";
-            this.TableFigures.RowCount = 1;
-            this.TableFigures.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TableFigures.Size = new System.Drawing.Size(880, 255);
-            this.TableFigures.TabIndex = 0;
             // 
             // PanelUnderTable
             // 
-            this.PanelUnderTable.Controls.Add(this.TableFigures);
+            this.PanelUnderTable.Controls.Add(this.dataGridView);
             this.PanelUnderTable.Location = new System.Drawing.Point(12, 42);
             this.PanelUnderTable.Name = "PanelUnderTable";
             this.PanelUnderTable.Size = new System.Drawing.Size(886, 261);
@@ -140,6 +128,24 @@ namespace figures
             this.simpleBorder.TabStop = false;
             this.simpleBorder.Text = "Взаимодействие";
             // 
+            // textbox_color
+            // 
+            this.textbox_color.Location = new System.Drawing.Point(88, 85);
+            this.textbox_color.Name = "textbox_color";
+            this.textbox_color.Size = new System.Drawing.Size(100, 22);
+            this.textbox_color.TabIndex = 17;
+            this.textbox_color.Visible = false;
+            // 
+            // label_color
+            // 
+            this.label_color.AutoSize = true;
+            this.label_color.Location = new System.Drawing.Point(112, 66);
+            this.label_color.Name = "label_color";
+            this.label_color.Size = new System.Drawing.Size(40, 16);
+            this.label_color.TabIndex = 16;
+            this.label_color.Text = "Цвет";
+            this.label_color.Visible = false;
+            // 
             // label_xy_in_input
             // 
             this.label_xy_in_input.AutoSize = true;
@@ -208,7 +214,7 @@ namespace figures
             "Четырёхугольник"});
             this.ListFigures.Location = new System.Drawing.Point(34, 359);
             this.ListFigures.Name = "ListFigures";
-            this.ListFigures.Size = new System.Drawing.Size(157, 24);
+            this.ListFigures.Size = new System.Drawing.Size(167, 24);
             this.ListFigures.TabIndex = 8;
             this.ListFigures.SelectedIndexChanged += new System.EventHandler(this.ListFigures_SelectedIndexChanged);
             // 
@@ -223,23 +229,49 @@ namespace figures
             this.label_choiceTypeFigure.Text = "Выберите тип";
             this.label_choiceTypeFigure.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // textbox_color
+            // dataGridView
             // 
-            this.textbox_color.Location = new System.Drawing.Point(88, 85);
-            this.textbox_color.Name = "textbox_color";
-            this.textbox_color.Size = new System.Drawing.Size(100, 22);
-            this.textbox_color.TabIndex = 17;
-            this.textbox_color.Visible = false;
+            this.dataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.ColumnHeadersHeight = 50;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.fig,
+            this.prop,
+            this.per,
+            this.squ});
+            this.dataGridView.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersWidth = 21;
+            this.dataGridView.Size = new System.Drawing.Size(880, 255);
+            this.dataGridView.TabIndex = 0;
             // 
-            // label_color
+            // fig
             // 
-            this.label_color.AutoSize = true;
-            this.label_color.Location = new System.Drawing.Point(112, 66);
-            this.label_color.Name = "label_color";
-            this.label_color.Size = new System.Drawing.Size(40, 16);
-            this.label_color.TabIndex = 16;
-            this.label_color.Text = "Цвет";
-            this.label_color.Visible = false;
+            this.fig.FillWeight = 91.59882F;
+            this.fig.HeaderText = "Фигура";
+            this.fig.Name = "fig";
+            this.fig.ReadOnly = true;
+            // 
+            // prop
+            // 
+            this.prop.FillWeight = 169.9667F;
+            this.prop.HeaderText = "Параметры";
+            this.prop.Name = "prop";
+            this.prop.ReadOnly = true;
+            // 
+            // per
+            // 
+            this.per.FillWeight = 77.52076F;
+            this.per.HeaderText = "Периметр";
+            this.per.Name = "per";
+            this.per.ReadOnly = true;
+            // 
+            // squ
+            // 
+            this.squ.FillWeight = 60.9137F;
+            this.squ.HeaderText = "Площадь";
+            this.squ.Name = "squ";
+            this.squ.ReadOnly = true;
             // 
             // Window
             // 
@@ -261,13 +293,12 @@ namespace figures
             this.PanelUnderTable.ResumeLayout(false);
             this.simpleBorder.ResumeLayout(false);
             this.simpleBorder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel TableFigures;
         private System.Windows.Forms.Panel PanelUnderTable;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -285,6 +316,11 @@ namespace figures
         private System.Windows.Forms.Label label_points;
         private System.Windows.Forms.TextBox textbox_color;
         private System.Windows.Forms.Label label_color;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fig;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn per;
+        private System.Windows.Forms.DataGridViewTextBoxColumn squ;
     }
 }
 

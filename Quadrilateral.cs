@@ -170,6 +170,12 @@ namespace figures
             return Math.Sqrt(area);
         }
 
+        // Узнать набор точек
+        public Point[] GetPoints()
+        {
+            return this.points;
+        }
+
 
     }
 }

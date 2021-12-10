@@ -22,6 +22,7 @@ namespace figures
         private void Window_Load(object sender, EventArgs e)
         {
             GeneralListFigures = new VectorDocument();
+
         }
 
         
@@ -38,10 +39,27 @@ namespace figures
         // Добавить фигуру в таблицу
         private void AddFigure_Click(object sender, EventArgs e)
         {
+            // Если не ввели данные
+            if (ListFigures.Text == "Круг")
+                if (textbox_points.Text == "" || textbox_color.Text == "" || textbox_radius.Text == "")
+                    return;
+
+            if (ListFigures.Text == "Четырёхугольник")
+                if (textbox_points.Text == "" || textbox_color.Text == "")
+                    return;
+
+            // Добавляем нужную фигуру
             if (ListFigures.Text == "Круг")
                 AddFigureCircle();
             else if (ListFigures.Text == "Четырёхугольник")
                 AddFigureQuadrilateral();
+
+            // Чистим строки ввода
+            textbox_points.Text = "";
+            textbox_color.Text = "";
+            textbox_radius.Text = "";
+
+            AddToTable();
         }
     }
 }
