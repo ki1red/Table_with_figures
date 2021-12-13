@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace figures
 {
+    [Serializable]
     class Circle : Figure
     {
         private Point centre;
@@ -41,6 +42,7 @@ namespace figures
             SetNewRadius(radius * arg);
         }
 
+        // Повернуть круг
         public override void Rotate(uint arg)
         {}
 

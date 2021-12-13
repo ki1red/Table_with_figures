@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace figures
 {
+    [Serializable]
     public class Color
     {
         private int red;

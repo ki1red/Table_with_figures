@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -60,6 +63,8 @@ namespace figures
             textbox_radius.Text = "";
 
             AddToTable();
+
+            if (GeneralListFigures.GetListFigures().Length > 0) button_saveAndOpen.Text = "Сохранить";
         }
 
         // Кнопка "Повернуть"
@@ -112,6 +117,45 @@ namespace figures
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             deleteFigure.Visible = true;
+        }
+
+        // Кнопка "Открыть"/"Сохранить"
+        private void button_saveAndOpen_Click(object sender, EventArgs e)
+        {
+            string nameFile = textbox_nameFile.Text + ".bin";
+
+            var customerJson = new BinaryFormatter();
+
+            if (button_saveAndOpen.Text == "Сохранить")
+            {
+                using (var file = new FileStream(nameFile, FileMode.OpenOrCreate))
+                {
+                    customerJson.Serialize(file, GeneralListFigures);
+                }
+            }
+            else if (button_saveAndOpen.Text == "Открыть")
+            {
+                using (var file = new FileStream(nameFile, FileMode.OpenOrCreate))
+                {
+                    var newList = customerJson.Deserialize(file) as VectorDocument;
+
+                    GeneralListFigures = newList;
+                    
+                }
+                Unpacking();
+                button_saveAndOpen.Text = "Сохранить";
+            }
+        }
+
+        // Кнопка "Переместить"
+        private void button_move_Click(object sender, EventArgs e)
+        {
+            string[] m = textbox_move.Text.Split(' ');
+            if (m.Length < 4) return;
+            int[] move = new int[] { int.Parse(m[0]), int.Parse(m[1]), int.Parse(m[2]), int.Parse(m[3])};
+            GeneralListFigures.Move(move[0], move[1], move[2], move[3]);
+
+            UpdateTable();
         }
     }
 }

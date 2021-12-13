@@ -51,6 +51,10 @@ namespace figures
             this.scaleFigures = new System.Windows.Forms.Button();
             this.list_deg = new System.Windows.Forms.ListBox();
             this.textbox_scale = new System.Windows.Forms.TextBox();
+            this.button_saveAndOpen = new System.Windows.Forms.Button();
+            this.textbox_nameFile = new System.Windows.Forms.TextBox();
+            this.textbox_move = new System.Windows.Forms.TextBox();
+            this.button_move = new System.Windows.Forms.Button();
             this.PanelUnderTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.simpleBorder.SuspendLayout();
@@ -242,9 +246,9 @@ namespace figures
             // 
             // rotateFigures
             // 
-            this.rotateFigures.Location = new System.Drawing.Point(404, 324);
+            this.rotateFigures.Location = new System.Drawing.Point(404, 325);
             this.rotateFigures.Name = "rotateFigures";
-            this.rotateFigures.Size = new System.Drawing.Size(83, 34);
+            this.rotateFigures.Size = new System.Drawing.Size(83, 28);
             this.rotateFigures.TabIndex = 11;
             this.rotateFigures.Text = "Повернуть";
             this.rotateFigures.UseVisualStyleBackColor = true;
@@ -252,9 +256,9 @@ namespace figures
             // 
             // scaleFigures
             // 
-            this.scaleFigures.Location = new System.Drawing.Point(404, 390);
+            this.scaleFigures.Location = new System.Drawing.Point(404, 375);
             this.scaleFigures.Name = "scaleFigures";
-            this.scaleFigures.Size = new System.Drawing.Size(104, 34);
+            this.scaleFigures.Size = new System.Drawing.Size(104, 27);
             this.scaleFigures.TabIndex = 12;
             this.scaleFigures.Text = "Масштабировать";
             this.scaleFigures.UseVisualStyleBackColor = true;
@@ -269,23 +273,61 @@ namespace figures
             "90",
             "180",
             "270"});
-            this.list_deg.Location = new System.Drawing.Point(330, 330);
+            this.list_deg.Location = new System.Drawing.Point(330, 325);
             this.list_deg.Name = "list_deg";
             this.list_deg.Size = new System.Drawing.Size(57, 24);
             this.list_deg.TabIndex = 13;
             // 
             // textbox_scale
             // 
-            this.textbox_scale.Location = new System.Drawing.Point(335, 397);
+            this.textbox_scale.Location = new System.Drawing.Point(335, 379);
             this.textbox_scale.Name = "textbox_scale";
             this.textbox_scale.Size = new System.Drawing.Size(51, 20);
             this.textbox_scale.TabIndex = 18;
+            // 
+            // button_saveAndOpen
+            // 
+            this.button_saveAndOpen.Location = new System.Drawing.Point(34, 9);
+            this.button_saveAndOpen.Name = "button_saveAndOpen";
+            this.button_saveAndOpen.Size = new System.Drawing.Size(75, 23);
+            this.button_saveAndOpen.TabIndex = 19;
+            this.button_saveAndOpen.Text = "Открыть";
+            this.button_saveAndOpen.UseVisualStyleBackColor = true;
+            this.button_saveAndOpen.Click += new System.EventHandler(this.button_saveAndOpen_Click);
+            // 
+            // textbox_nameFile
+            // 
+            this.textbox_nameFile.Location = new System.Drawing.Point(115, 12);
+            this.textbox_nameFile.Name = "textbox_nameFile";
+            this.textbox_nameFile.Size = new System.Drawing.Size(100, 20);
+            this.textbox_nameFile.TabIndex = 20;
+            // 
+            // textbox_move
+            // 
+            this.textbox_move.Location = new System.Drawing.Point(294, 420);
+            this.textbox_move.Name = "textbox_move";
+            this.textbox_move.Size = new System.Drawing.Size(92, 20);
+            this.textbox_move.TabIndex = 22;
+            // 
+            // button_move
+            // 
+            this.button_move.Location = new System.Drawing.Point(404, 415);
+            this.button_move.Name = "button_move";
+            this.button_move.Size = new System.Drawing.Size(104, 27);
+            this.button_move.TabIndex = 21;
+            this.button_move.Text = "Переместить";
+            this.button_move.UseVisualStyleBackColor = true;
+            this.button_move.Click += new System.EventHandler(this.button_move_Click);
             // 
             // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 450);
+            this.Controls.Add(this.textbox_move);
+            this.Controls.Add(this.button_move);
+            this.Controls.Add(this.textbox_nameFile);
+            this.Controls.Add(this.button_saveAndOpen);
             this.Controls.Add(this.textbox_scale);
             this.Controls.Add(this.list_deg);
             this.Controls.Add(this.scaleFigures);
@@ -330,6 +372,10 @@ namespace figures
         private System.Windows.Forms.Button scaleFigures;
         private System.Windows.Forms.ListBox list_deg;
         private System.Windows.Forms.TextBox textbox_scale;
+        private System.Windows.Forms.Button button_saveAndOpen;
+        private System.Windows.Forms.TextBox textbox_nameFile;
+        private System.Windows.Forms.TextBox textbox_move;
+        private System.Windows.Forms.Button button_move;
     }
 }
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace figures
 {
+    [Serializable]
     public class Point
     {
         
@@ -49,5 +50,10 @@ namespace figures
         {
             return this.y;
         }
+
+        /*public static Point operator= (Point b)
+        {
+            return (new Point(b.GetX(),b.GetY()));
+        }*/
     }
 }

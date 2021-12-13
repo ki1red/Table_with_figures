@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace figures
 {
-    class Quadrilateral : Figure
+    [Serializable]
+    public class Quadrilateral : Figure
     {
         private Point[] points;
 
@@ -24,15 +25,6 @@ namespace figures
             return l;
         }
 
-        // Периметр треугольника
-        /*private double GetPerimeterTriangle(Point first, Point second, Point third)
-        {
-            double a = PythagoreanTheorem(first, second);
-            double b = PythagoreanTheorem(second, third);
-            double c = PythagoreanTheorem(third, first);
-
-            return (a + b + c);
-        }*/
 
         // Конструктор с параметрами
         public Quadrilateral(Point[] _points, Color _color):base(_color)
@@ -52,7 +44,7 @@ namespace figures
             }
         }
 
-        // 
+        // Установить новые точки
         private bool SetNewPoints(Point[] newPoints)
         {
             int length = newPoints.Length;
@@ -138,25 +130,6 @@ namespace figures
         }
 
         // Узнать площадь
-        /*public override double GetSquare()
-        {
-            double triangleFirst = GetPerimeterTriangle(points[0],points[1],points[2]) / 2;
-            double a = PythagoreanTheorem(points[0], points[1]), 
-                b = PythagoreanTheorem(points[1], points[2]), 
-                c = PythagoreanTheorem(points[2], points[0]);
-
-            double SFirst = Math.Sqrt(triangleFirst * (triangleFirst - a) * (triangleFirst - b) * (triangleFirst - c));
-
-            double triangleSecond = GetPerimeterTriangle(points[2], points[3], points[0]) / 2;
-            a = PythagoreanTheorem(points[2], points[3]);
-            b = PythagoreanTheorem(points[3], points[0]); 
-            c = PythagoreanTheorem(points[0], points[2]);
-
-            double SSecond = Math.Sqrt(triangleSecond * (triangleSecond - a) * (triangleSecond - b) * (triangleSecond - c));
-
-            return (SFirst+SSecond);
-        }*/
-
         public override double GetSquare()
         {
             double half_perimeter = GetPerimeter() / 2;

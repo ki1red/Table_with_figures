@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace figures
 {
-    class VectorDocument
+    [Serializable]
+    public class VectorDocument
     {
         private Figure[] figures; 
         

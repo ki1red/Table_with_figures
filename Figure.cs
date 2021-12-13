@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace figures
 {
-    abstract class Figure
+    [Serializable]
+    public abstract class Figure
     {
         private Color color;
 
